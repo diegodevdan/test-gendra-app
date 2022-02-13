@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fab52587-5f3a-4443-8244-1a3db11bb8f6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/AppRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/AppRouter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/DashboardRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/DashboardRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/PrivateRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/PrivateRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/PublicRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/PublicRoutes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestGendraApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestGendraApp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/HomeScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeScreen.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +23,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="working" />
-                    <option name="lastUsedInstant" value="1644719159" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1644731115" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1644718670" />
+                    <option name="branchName" value="working" />
+                    <option name="lastUsedInstant" value="1644719159" />
                   </RecentBranch>
                 </list>
               </option>
@@ -73,7 +70,8 @@
       <updated>1644718318303</updated>
       <workItem from="1644718320157" duration="717000" />
       <workItem from="1644719051226" duration="6992000" />
-      <workItem from="1644730749196" duration="288000" />
+      <workItem from="1644730749196" duration="1015000" />
+      <workItem from="1644764322505" duration="1828000" />
     </task>
     <servers />
   </component>

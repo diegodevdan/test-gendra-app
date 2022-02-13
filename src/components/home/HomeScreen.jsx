@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, Grid, Tab, Tabs } from '@mui/material'
+import { Alert, Button, Grid } from '@mui/material'
 import { CardEpisode } from '../ui/card/Card'
+import MovieIcon from '@mui/icons-material/Movie';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
+import { CardCharacter } from '../ui/card-character/CardCharacter'
 
 // Static data
 const urlEpisodes = 'https://rickandmortyapi.com/api/episode';
@@ -10,6 +13,7 @@ const HomeScreen = () => {
   const [episodes, setEpisodes] = useState([]);
   const [recentEpisodes, setRecentEpisodes] = useState([]);
   const [characters, setCharacters] = useState([]);
+  const [isShowedEpisodes, setIsShowedEpisodes] = useState(true)
 
   const getEpisodes = async () => {
     try {
@@ -44,6 +48,14 @@ const HomeScreen = () => {
     console.log(episodes)
   }
 
+  const showEpisodes = () => {
+    setIsShowedEpisodes(prevState => true);
+  }
+
+  const showCharacters = () => {
+    setIsShowedEpisodes(prevState => false);
+  }
+
   useEffect(() => {
     getEpisodes()
   }, [])
@@ -60,33 +72,77 @@ const HomeScreen = () => {
 
   return (
     <>
-      <Tabs  centered>
-        <Tab label="Episodes" />
-        <Tab label="Characters" />
-      </Tabs>
-      <Grid
-        container
-        spacing={4}
-      >
-        {
-          recentEpisodes.map(episode => (
-            <Grid
-              key={episode.id}
-              item
-              xs={12}
-              sm={6}
-              md={4}
-            >
-              <CardEpisode
-                name={episode.name}
-                airDate={episode.air_date}
-                numberEpisode={episode.id}
-                imgEpisode="https://acortar.link/N2buEE"
-              />
-            </Grid>
-          ))
-        }
-      </Grid>
+      <div>
+        <Button
+         onClick={showEpisodes}
+          variant="contained"
+          endIcon={<MovieIcon />}>
+          Episodes
+        </Button>
+        <Button
+          onClick={showCharacters}
+          variant="contained"
+          endIcon={<CoPresentIcon />}>
+          Characters
+        </Button>
+      </div>
+
+
+      {
+        isShowedEpisodes ? (
+          <Grid
+            container
+            spacing={4}
+          >
+            {
+              recentEpisodes.map(episode => (
+                <Grid
+                  key={episode.id}
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                >
+                  <CardEpisode
+                    name={episode.name}
+                    airDate={episode.air_date}
+                    numberEpisode={episode.id}
+                    imgEpisode="https://acortar.link/N2buEE"
+                  />
+                </Grid>
+              ))
+            }
+          </Grid>
+        ) : (
+          <Grid
+            container
+            spacing={4}
+          >
+            {
+              characters.map(character => (
+                <Grid
+                  key={character.id}
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                >
+                  <CardCharacter
+                    name={character.name}
+                    specie={character.species}
+                    location={character.location.name}
+                    status={character.status}
+                    gender={character.gender}
+                    image={character.image}
+                    origin={character.origin.name}
+                  />
+                </Grid>
+              ))
+            }
+          </Grid>
+        )
+      }
+
     </>
 
   )
