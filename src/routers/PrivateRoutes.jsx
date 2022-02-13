@@ -1,15 +1,15 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 
-const PrivateRoutes = ({children}) => {
-//TODO REDUX GET USER
+const PrivateRoutes = ({ children }) => {
+// TODO REDUX GET USER
   const user = {
-    isLogged: false
+    isLogged: true
   }
 
   return user.isLogged
     ? children
-    : <Navigate to="/login" />
+    : <Navigate to='/login' />
 }
 
 export default PrivateRoutes

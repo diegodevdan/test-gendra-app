@@ -12,7 +12,7 @@ const AppRouter = () => {
         <Routes>
 
           <Route
-            path="/login"
+            path='/login'
             element={
               <PublicRoutes>
                 <LoginScreen />
@@ -21,7 +21,7 @@ const AppRouter = () => {
           />
 
           <Route
-            path="/*"
+            path='/*'
             element={
               <PrivateRoutes>
                 <DashboardRoutes />
