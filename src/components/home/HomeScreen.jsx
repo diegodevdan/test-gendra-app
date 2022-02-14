@@ -1,150 +1,115 @@
-import React, { useEffect, useState } from 'react'
-import { Alert, Button, Grid } from '@mui/material'
-import { CardEpisode } from '../ui/card/Card'
-import MovieIcon from '@mui/icons-material/Movie';
-import CoPresentIcon from '@mui/icons-material/CoPresent';
+import React, {useEffect, useState } from 'react'
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import { CardCharacter } from '../ui/card-character/CardCharacter'
-
-// Static data
-const urlEpisodes = 'https://rickandmortyapi.com/api/episode';
-const urlCharacters = 'https://rickandmortyapi.com/api/character';
+import { getEpisodes } from '../../selectors/episodes/getEpisodes'
+import EpisodesList from './episodes-list/EpisodesList'
+import { getCharacters } from '../../selectors/characthers/getCharacters'
+import '../../styles/home-screen.css';
+import SearchIcon from '@mui/icons-material/Search';
+import MovieIcon from '@mui/icons-material/Movie'
+import CoPresentIcon from '@mui/icons-material/CoPresent'
+import SearchBar from '../ui/search-bar/SearchBar'
+import CharacterList from './characters-list/CharacterList'
 
 const HomeScreen = () => {
   const [episodes, setEpisodes] = useState([]);
-  const [recentEpisodes, setRecentEpisodes] = useState([]);
+  //TODO make object with episodes and pages, same way for the characters
+
+  const [pages, setPages] = useState(0)
+  const [pagesCharacter, setPagesCharacter] = useState(0)
   const [characters, setCharacters] = useState([]);
-  const [isShowedEpisodes, setIsShowedEpisodes] = useState(true)
-
-  const getEpisodes = async () => {
-    try {
-      const { results } = await fetch(urlEpisodes)
-        .then(response => response.json())
-        .then(data => data)
-      setEpisodes(results);
-      getMostRecentEpisodes(results)
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
-  const getCharacters = async () => {
-    try {
-      const { results } = await fetch(urlCharacters)
-        .then(response => response.json())
-        .then(data => data)
-      setCharacters(results)
-      console.log(characters)
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
-  const getMostRecentEpisodes = (listEpisodes = []) => {
-    const recentEpisodes = listEpisodes
-      .filter(episode => episode.air_date.includes('2015'))
-
-    // TODO dispatch redux episodes
-    setRecentEpisodes(recentEpisodes)
-    console.log(episodes)
-  }
+  const [isShowedEpisodes, setIsShowedEpisodes] = useState(true);
 
   const showEpisodes = () => {
     setIsShowedEpisodes(prevState => true);
+  }
+
+  const changePage = (page) => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    getEpisodes(page).then(({ results }) => setEpisodes(results));
+  }
+
+  const changePageCharacters = (page) => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    getCharacters(page).then(({ results }) => setCharacters(results));
+  }
+
+  const episodesRecently = () => {
+    const recentEpisodes = episodes
+      .sort((a,b) => a.created < b.created ? 1 : a.created > b.created ? -1 : 0)
+    setEpisodes(prevState => [...recentEpisodes]);
+  }
+
+  const episodesOlder = () => {
+    const recentEpisodes = episodes
+      .sort((a,b) => a.created > b.created ? 1 : a.created < b.created ? -1 : 0)
+    setEpisodes(prevState => [...recentEpisodes]);
+    console.log(episodes)
   }
 
   const showCharacters = () => {
     setIsShowedEpisodes(prevState => false);
   }
 
+
   useEffect(() => {
     getEpisodes()
-  }, [])
+      .then(data => {
+        setEpisodes(data.results);
+        setPages(data.info.pages);
+      })
+  }, [getEpisodes])
 
   useEffect(() => {
     getCharacters()
-  }, [])
-
-  if(episodes.length === 0) return (
-    <Alert variant='filled' severity='error'>
-      Something was grong, try again later
-    </Alert>
-  )
+      .then(data => {
+        setCharacters(data.results);
+        setPagesCharacter(data.info.pages)
+      })
+  }, [getEpisodes])
 
   return (
-    <>
+    <div className="main-home-screen">
+
       <div>
-        <Button
-         onClick={showEpisodes}
-          variant="contained"
-          endIcon={<MovieIcon />}>
-          Episodes
-        </Button>
-        <Button
-          onClick={showCharacters}
-          variant="contained"
-          endIcon={<CoPresentIcon />}>
-          Characters
-        </Button>
+
+        <div>
+          <Button
+            onClick={showEpisodes}
+            variant="contained"
+            endIcon={<MovieIcon />}>
+            Episodes
+          </Button>
+          <Button
+            onClick={showCharacters}
+            variant="contained"
+            endIcon={<CoPresentIcon />}>
+            Characters
+          </Button>
+        </div>
+        <SearchBar />
       </div>
-
-
       {
-        isShowedEpisodes ? (
-          <Grid
-            container
-            spacing={4}
-          >
-            {
-              recentEpisodes.map(episode => (
-                <Grid
-                  key={episode.id}
-                  item
-                  xs={12}
-                  sm={6}
-                  md={4}
-                >
-                  <CardEpisode
-                    name={episode.name}
-                    airDate={episode.air_date}
-                    numberEpisode={episode.id}
-                    imgEpisode="https://acortar.link/N2buEE"
-                  />
-                </Grid>
-              ))
-            }
-          </Grid>
-        ) : (
-          <Grid
-            container
-            spacing={4}
-          >
-            {
-              characters.map(character => (
-                <Grid
-                  key={character.id}
-                  item
-                  xs={12}
-                  sm={6}
-                  md={4}
-                >
-                  <CardCharacter
-                    name={character.name}
-                    specie={character.species}
-                    location={character.location.name}
-                    status={character.status}
-                    gender={character.gender}
-                    image={character.image}
-                    origin={character.origin.name}
-                  />
-                </Grid>
-              ))
-            }
-          </Grid>
-        )
+        isShowedEpisodes
+          ? (
+            <>
+              <EpisodesList
+                episodes={episodes}
+                changePage={changePage}
+                episodesOlder={episodesOlder}
+                episodesRecently={episodesRecently}
+                pages={pages}
+              />
+            </>
+            ) : (
+              <CharacterList
+                characters={characters}
+                pages={pagesCharacter}
+                changePage={changePageCharacters}
+              />
+            )
       }
-
-    </>
-
+    </div>
   )
 }
 

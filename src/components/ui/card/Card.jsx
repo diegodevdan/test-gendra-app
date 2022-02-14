@@ -4,14 +4,23 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import { useNavigate } from 'react-router-dom'
 
 export const CardEpisode = (
   {
     name,
     numberEpisode,
     airDate,
-    imgEpisode
+    imgEpisode,
+    id
   }) => {
+
+  const navigate = useNavigate();
+
+  const redirectEpisode = () => {
+    navigate(`/episodes/${id}`)
+  }
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -22,7 +31,7 @@ export const CardEpisode = (
           alt='image episode'
         />
         <CardContent>
-          <Typography gutterBottom variant='h5' component='div'>
+          <Typography noWrap gutterBottom variant='h5' component='div'>
             {name} <br/>
             Episode #{numberEpisode}
           </Typography>
@@ -32,7 +41,11 @@ export const CardEpisode = (
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size='small' color='primary'>
+        <Button
+          size='small'
+          color='primary'
+          onClick={redirectEpisode}
+        >
           Go to te episode
         </Button>
       </CardActions>
