@@ -6,7 +6,16 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
 
+.episode-main .avatar{
+    margin: 20px;
+}
+
+.avatar img{
+    margin-top: 60px;
+    border-radius: 50%;
+    border: 2px solid black;
 }
 
 .wallpaper img{

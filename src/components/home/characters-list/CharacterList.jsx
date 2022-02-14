@@ -1,9 +1,20 @@
 import React from 'react'
-import { Grid } from '@mui/material'
+import { Alert, Grid } from '@mui/material'
 import CharacterGrid from './CharacterGrid'
 import Paginator from '../../ui/paginator/Paginator'
 
-const CharacterList = ({characters, pages, changePage}) => {
+const CharacterList = ({
+  characters,
+  pages,
+  changePage
+}) => {
+
+  if(characters.length === 0) return (
+    <Alert variant='filled' severity='error'>
+      Something was grong, try again later
+    </Alert>
+  )
+
   return (
     <>
       <Grid
@@ -20,10 +31,14 @@ const CharacterList = ({characters, pages, changePage}) => {
         }
       </Grid>
 
-      <Paginator
-        pages={pages}
-        changePage={changePage}
-      />
+      {
+        pages > 1 && (
+          <Paginator
+            pages={pages}
+            changePage={changePage}
+          />
+        )
+      }
     </>
 
   )

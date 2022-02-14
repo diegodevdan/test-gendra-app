@@ -10,3 +10,26 @@
 .main-home-screen .rm-logo img{
     width: 50%;
 }
+
+.main-home-screen h1{
+    background-color: yellow;
+    text-align: center;
+    padding: 50px 20px;
+    font-size: 4rem;
+}
+
+.main-home-screen small{
+    color: darkslategray;
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 994px){
+    .main-home-screen h1{
+        padding: 30px 20px;
+        font-size: 2rem;
+    }
+
+    .main-home-screen small{
+        font-size: 1rem;
+    }
+}

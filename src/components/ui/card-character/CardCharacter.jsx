@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Avatar } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 
 export const CardCharacter = (
@@ -15,8 +16,16 @@ export const CardCharacter = (
     specie,
     status,
     location,
-    origin
+    origin,
+    id
   }) => {
+
+  const navigate = useNavigate();
+
+  const redirectEpisode = () => {
+    navigate(`/characters/${id}`)
+  }
+
   return (
     <Card sx={{ minWidth: 275 }}>
       <Avatar  sx={{ width: 56, height: 56 }} alt="img character" src={image}/>
@@ -37,7 +46,11 @@ export const CardCharacter = (
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button
+          size='small'
+          color='primary'
+          onClick={redirectEpisode}
+        >Learn More</Button>
       </CardActions>
     </Card>
   );

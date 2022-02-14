@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import { CardEpisode } from '../../ui/card/Card'
+import Wall from '../../../assets/statics/wal.jpg'
 
 const EpisodeGrid = ({ episode }) => {
   return (
@@ -15,8 +16,8 @@ const EpisodeGrid = ({ episode }) => {
         id={episode.id}
         name={episode.name}
         airDate={episode.air_date}
-        numberEpisode={episode.id}
-        imgEpisode="https://acortar.link/N2buEE"
+        numberEpisode={episode.episode}
+        imgEpisode={Wall}
       />
     </Grid>
   )

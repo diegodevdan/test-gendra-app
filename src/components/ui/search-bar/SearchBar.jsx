@@ -11,7 +11,7 @@ const initSearchParams = {
   specifyParameter: ''
 }
 
-const SearchBar = () => {
+const SearchBar = ({ setSearchResults }) => {
   console.log("rerender");
 
   const [searchParameters, setSearchParameters] = useState(initSearchParams);
@@ -48,8 +48,9 @@ const SearchBar = () => {
         setShowAlert(true);
         return;
       }
-      setPages(data.info.pages)
-      console.log(pages)
+      // IUGH
+      setPages(data.info.pages);
+      setSearchResults(data.info.pages, data.results, true)
     } catch (e) {
       console.log(e)
     }
@@ -71,8 +72,8 @@ const SearchBar = () => {
         setShowAlert(true);
         return;
       }
-      setPages(data.info.pages)
-      console.log(pages)
+      setPages(data.info.pages);
+      setSearchResults(data.info.pages, data.results, false)
     } catch (e) {
       console.log(e);
     }
@@ -82,10 +83,11 @@ const SearchBar = () => {
     setShowAlert(false);
   }
 
+
   //TODO REFACTOR
   return (
     <div className="search-bar-main" >
-      {JSON.stringify(pages)}
+      {/*{JSON.stringify(pages)}*/}
       { showAlert && (
         <Alert
           severity="warning"
@@ -127,7 +129,7 @@ const SearchBar = () => {
               className="cont-inputs form-container"
             >
 
-              <InputLabel id="search-character">Type</InputLabel>
+              <InputLabel id="search-character">Type Parameters</InputLabel>
               <Select
                 name="typeCharacterParameter"
                 labelId="search-character"
@@ -246,7 +248,7 @@ const SearchBar = () => {
               variant="outlined"
               endIcon={<SearchIcon />}
               onClick={searchEpisode}
-              disabled={typeParameter.length <= 0 || specifyParameter.length <= 3}
+              disabled={typeParameter.length <= 0}
             >
               Search Episode
             </Button>

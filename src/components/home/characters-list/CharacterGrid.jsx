@@ -19,6 +19,7 @@ const CharacterGrid = ({character}) => {
         gender={character.gender}
         image={character.image}
         origin={character.origin.name}
+        id={character.id}
       />
     </Grid>
   )

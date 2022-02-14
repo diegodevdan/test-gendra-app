@@ -8,15 +8,34 @@ import CharacterList from './characters-list/CharacterList'
 import HeadersButtons from '../ui/header-buttons/HeadersButtons'
 import RmLogo from '../../assets/statics/Rick_and_Morty_Logo.png'
 
+const initSearchedResults =  {
+  pages: 0,
+  results: null
+}
+
 const HomeScreen = () => {
-  const [episodes, setEpisodes] = useState([]);
-
   //TODO make object with episodes and pages, same way for the characters
-
+  const [episodes, setEpisodes] = useState([]);
   const [pages, setPages] = useState(0)
   const [pagesCharacter, setPagesCharacter] = useState(0)
   const [characters, setCharacters] = useState([]);
   const [isShowedEpisodes, setIsShowedEpisodes] = useState(true);
+
+  const setSearchResults = (pages, results, isEpisode) => {
+    console.log(pages);
+    console.log(results);
+    console.log(isEpisode);
+
+    if(isEpisode){
+      setIsShowedEpisodes(true);
+      setEpisodes(prevState => [...results]);
+      setPages(pages);
+    } else {
+      setIsShowedEpisodes(false);
+      setCharacters(results);
+      setPagesCharacter(pages);
+    }
+  }
 
   const showEpisodes = () => {
     setIsShowedEpisodes(prevState => true);
@@ -64,7 +83,7 @@ const HomeScreen = () => {
         setCharacters(data.results);
         setPagesCharacter(data.info.pages)
       })
-  }, [getEpisodes])
+  }, [getCharacters])
 
   return (
     <div className="main-home-screen">
@@ -77,7 +96,13 @@ const HomeScreen = () => {
           showEpisodes={showEpisodes}
           showCharacters={showCharacters}
         />
-        <SearchBar />
+        <SearchBar
+          setSearchResults={setSearchResults}
+        />
+        <h1>
+          { isShowedEpisodes ? 'EPISODES' : 'CHARACTERS' } <br/>
+          <small> Total pages: {isShowedEpisodes ? pages : pagesCharacter}</small>
+        </h1>
       </div>
       {
         isShowedEpisodes

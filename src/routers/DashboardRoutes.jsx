@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import HomeScreen from '../components/home/HomeScreen'
 import EpisodeScreen from '../components/episode/EpisodeScreen'
 import { AppBarSearch } from '../components/ui/navbar/Navbar'
+import CharacterScreen from '../components/character/CharacterScreen'
 
 const DashboardRoutes = () => {
   return (
@@ -21,6 +22,14 @@ const DashboardRoutes = () => {
           path='/episodes/:episodeId'
           element={
             <EpisodeScreen />
+          }
+        />
+
+        <Route
+          exact
+          path='/characters/:characterId'
+          element={
+            <CharacterScreen />
           }
         />
 
