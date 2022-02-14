@@ -36,6 +36,11 @@ I don't make comment lines in my code but for
 this test i made a little comments for mostly
 pages. 
 
+UPDATE: i always refactor and fix the performance
+of the app using useCallBack and/or useMemo,
+but i forgot use redux, so if have time i 
+refactor this. 
+
 -Diego Herrera
 
 ## Available Scripts
