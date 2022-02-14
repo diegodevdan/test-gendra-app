@@ -1,6 +1,5 @@
 import React from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import { typeValues } from '../../../../data/searchBarTypes'
 
 const FormControlUpdated = ({typeName, typeParameter, handleChange, defaultValue}) => {
   return (

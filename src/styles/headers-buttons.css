@@ -1,0 +1,24 @@
+.header-buttons-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-buttons-main {
+
+}
+
+.header-buttons-main .cont-button {
+    background-color: #91e787;
+    transition: .3s all ease-in;
+    width: 50%;
+    height: 100px;
+    transition: .3s all ease-in;
+}
+
+
+.cont-button:hover {
+    background-color: rgba(145, 231, 135, 0.8);
+}
+
+

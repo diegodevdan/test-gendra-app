@@ -22,7 +22,9 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 export const AppBarSearch = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar
+        sx={{ bgcolor: "#46b1c9" }}
+        position="fixed">
         <StyledToolbar>
           <IconButton
             size="large"

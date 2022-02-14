@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react'
 import { Alert, Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import { genderValues, statusValues, typeCharacterValues, typeValues } from '../../../data/searchBarTypes'
+import '../../../styles/search-bar.css'
 
 const initSearchParams = {
   typeParameter: '',
@@ -42,9 +43,9 @@ const SearchBar = () => {
     try {
       const resp = await fetch(urlSpecifyCharacters)
       const data = await resp.json();
+      setSearchParameters(initSearchParams);
       if(!data.results && !data.info){
         setShowAlert(true);
-        setSearchParameters(initSearchParams);
         return;
       }
       setPages(data.info.pages)
@@ -65,9 +66,9 @@ const SearchBar = () => {
       const resp = await fetch(url)
       const data = await resp.json();
       console.log(data)
+      setSearchParameters(initSearchParams);
       if(!data.results && !data.info){
         setShowAlert(true);
-        setSearchParameters(initSearchParams);
         return;
       }
       setPages(data.info.pages)
@@ -83,7 +84,7 @@ const SearchBar = () => {
 
   //TODO REFACTOR
   return (
-    <div style={{width: '400px', padding: '20px'}} >
+    <div className="search-bar-main" >
       {JSON.stringify(pages)}
       { showAlert && (
         <Alert
@@ -95,38 +96,38 @@ const SearchBar = () => {
       }
 
 
-      <FormControl
-        margin={'dense'}
-        fullWidth
-      >
+      <div className="search-bar-main cont-inputs">
 
-        <InputLabel id="type-search">Type</InputLabel>
-        <Select
-          name="typeParameter"
-          labelId="type-search"
-          value={typeParameter}
-          label="Type"
-          onChange={handleChange}
+        <FormControl
+          className="cont-inputs form-container"
         >
-          {typeValues.map(({value, name }) => (
-            <MenuItem
-              key={value}
-              value={value}
-            >
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+
+          <InputLabel id="type-search">Type</InputLabel>
+          <Select
+            name="typeParameter"
+            labelId="type-search"
+            value={typeParameter}
+            label="Type"
+            onChange={handleChange}
+          >
+            {typeValues.map(({value, name }) => (
+              <MenuItem
+                key={value}
+                value={value}
+              >
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
         {
           typeParameter === 'character' && (
             <FormControl
-              margin={'dense'}
-              fullWidth
+              className="cont-inputs form-container"
             >
 
-            <InputLabel id="search-character">Type</InputLabel>
+              <InputLabel id="search-character">Type</InputLabel>
               <Select
                 name="typeCharacterParameter"
                 labelId="search-character"
@@ -148,83 +149,84 @@ const SearchBar = () => {
           )
         }
 
-      {
-        typeCharacterParameter === 'status' && (
-          <FormControl
-            margin={'dense'}
-            fullWidth
-          >
-
-            <InputLabel id="search-character">Status</InputLabel>
-            <Select
-              name="secondaryCharacterParameter"
-              labelId="search-character"
-              value={secondaryCharacterParameter}
-              label="Search parameter"
-              onChange={handleChange}
+        {
+          typeCharacterParameter === 'status' && (
+            <FormControl
+              className="cont-inputs form-container"
             >
-              {statusValues.map(({value, name }) => (
-                <MenuItem
-                  key={value}
-                  value={value}
-                >
-                  {name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        )
-      }
 
-      {
-        typeCharacterParameter === 'gender' && (
-          <FormControl
-            margin={'dense'}
-            fullWidth
-          >
+              <InputLabel id="search-character">Status</InputLabel>
+              <Select
+                name="secondaryCharacterParameter"
+                labelId="search-character"
+                value={secondaryCharacterParameter}
+                label="Search parameter"
+                onChange={handleChange}
+              >
+                {statusValues.map(({value, name }) => (
+                  <MenuItem
+                    key={value}
+                    value={value}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )
+        }
 
-            <InputLabel id="search-character">Gender</InputLabel>
-            <Select
-              name="secondaryCharacterParameter"
-              labelId="search-character"
-              value={secondaryCharacterParameter}
-              label="Search parameter"
-              onChange={handleChange}
+        {
+          typeCharacterParameter === 'gender' && (
+            <FormControl
+              className="cont-inputs form-container"
             >
-              {genderValues.map(({value, name }) => (
-                <MenuItem
-                  key={value}
-                  value={value}
-                >
-                  {name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        )
-      }
 
-      {
-        (typeCharacterParameter !== 'status' && typeCharacterParameter !== 'gender') &&
-        (
-          <TextField
-            margin={'dense'}
-            name="specifyParameter"
-            id="outlined-basic"
-            label="Outlined"
-            variant="outlined"
-            value={specifyParameter}
-            onChange={handleChange}
-            fullWidth
-          />
-        )
-      }
+              <InputLabel id="search-character">Gender</InputLabel>
+              <Select
+                name="secondaryCharacterParameter"
+                labelId="search-character"
+                value={secondaryCharacterParameter}
+                label="Search parameter"
+                onChange={handleChange}
+              >
+                {genderValues.map(({value, name }) => (
+                  <MenuItem
+                    key={value}
+                    value={value}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )
+        }
+
+        {
+          (typeCharacterParameter !== 'status' && typeCharacterParameter !== 'gender') &&
+          (
+            <TextField
+              name="specifyParameter"
+              id="outlined-basic"
+              label="Something on specific?"
+              variant="outlined"
+              value={specifyParameter}
+              onChange={handleChange}
+              className="cont-inputs form-container"
+            />
+          )
+        }
+
+      </div>
+
 
       {
         typeParameter === 'character'
         ? (
             <Button
-              sx={{mt: '1rem'}}
+              sx={{ ml: 5 }}
+              className="search-bar-main button-submit"
               variant="outlined"
               endIcon={<SearchIcon />}
               onClick={searchCharacter}
@@ -239,7 +241,8 @@ const SearchBar = () => {
           )
         : (
             <Button
-              sx={{mt: '1rem'}}
+              sx={{ ml: 5 }}
+              className="search-bar-main button-submit"
               variant="outlined"
               endIcon={<SearchIcon />}
               onClick={searchEpisode}

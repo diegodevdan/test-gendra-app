@@ -1,6 +1,8 @@
 import React from 'react'
 import { Alert, Grid, Pagination } from '@mui/material'
 import EpisodeGrid from './EpisodeGrid'
+import '../../../styles/episode-list.css'
+import Paginator from '../../ui/paginator/Paginator'
 
 const EpisodesList = ({
   episodes,
@@ -15,13 +17,17 @@ const EpisodesList = ({
       Something was grong, try again later
     </Alert>
   )
-  return (
-    <>
 
-      <p onClick={episodesRecently}>most recently</p>
-      <p onClick={episodesOlder}>most older</p>
-      <p onClick={episodesOlder}>most older</p>
-      <p onClick={episodesOlder}>most older</p>
+  return (
+    <div
+      className="episode-list-main"
+    >
+
+      <div className="episode-list-main cont-tabs">
+        <p onClick={episodesRecently}>most recently</p>
+        <p onClick={episodesOlder}>most older</p>
+      </div>
+
 
       <Grid
         container
@@ -34,12 +40,11 @@ const EpisodesList = ({
               episode={episode} />))
         }
       </Grid>
-      <Pagination
-        count={pages}
-        color="primary"
-        onChange={(event, value) => changePage(value)}
+      <Paginator
+        pages={pages}
+        changePage={changePage}
       />
-    </>
+    </div>
   )
 }
 

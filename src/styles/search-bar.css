@@ -1,0 +1,27 @@
+.search-bar-main {
+    padding: 10px;
+}
+
+.search-bar-main .cont-inputs{
+    display: flex;
+    padding: 20px;
+}
+
+.cont-inputs .form-container {
+    width: 20%;
+}
+
+.search-bar-main .button-submit {
+    padding: 10px;
+}
+
+@media screen and (max-width: 994px){
+    .search-bar-main .cont-inputs{
+        flex-direction: column;
+    }
+
+    .cont-inputs .form-container {
+        width: 50%;
+        min-width: 220px;
+    }
+}

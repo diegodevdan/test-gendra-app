@@ -1,18 +1,16 @@
 import React, {useEffect, useState } from 'react'
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material'
-import { CardCharacter } from '../ui/card-character/CardCharacter'
 import { getEpisodes } from '../../selectors/episodes/getEpisodes'
 import EpisodesList from './episodes-list/EpisodesList'
 import { getCharacters } from '../../selectors/characthers/getCharacters'
 import '../../styles/home-screen.css';
-import SearchIcon from '@mui/icons-material/Search';
-import MovieIcon from '@mui/icons-material/Movie'
-import CoPresentIcon from '@mui/icons-material/CoPresent'
 import SearchBar from '../ui/search-bar/SearchBar'
 import CharacterList from './characters-list/CharacterList'
+import HeadersButtons from '../ui/header-buttons/HeadersButtons'
+import RmLogo from '../../assets/statics/Rick_and_Morty_Logo.png'
 
 const HomeScreen = () => {
   const [episodes, setEpisodes] = useState([]);
+
   //TODO make object with episodes and pages, same way for the characters
 
   const [pages, setPages] = useState(0)
@@ -70,23 +68,15 @@ const HomeScreen = () => {
 
   return (
     <div className="main-home-screen">
+      <div className="main-home-screen rm-logo">
+        <img src={RmLogo} alt="rick and morty logo"/>
+      </div>
 
       <div>
-
-        <div>
-          <Button
-            onClick={showEpisodes}
-            variant="contained"
-            endIcon={<MovieIcon />}>
-            Episodes
-          </Button>
-          <Button
-            onClick={showCharacters}
-            variant="contained"
-            endIcon={<CoPresentIcon />}>
-            Characters
-          </Button>
-        </div>
+        <HeadersButtons
+          showEpisodes={showEpisodes}
+          showCharacters={showCharacters}
+        />
         <SearchBar />
       </div>
       {

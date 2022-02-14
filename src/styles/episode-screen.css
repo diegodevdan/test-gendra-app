@@ -1,0 +1,16 @@
+.episode-main {
+    text-align:  center;
+}
+
+.episode-main .wallpaper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.wallpaper img{
+    width: 50%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

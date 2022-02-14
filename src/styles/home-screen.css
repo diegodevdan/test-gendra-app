@@ -1,3 +1,12 @@
 .main-home-screen {
-    padding-top: 80px;
+    padding-top: 60px;
+}
+
+.main-home-screen .rm-logo{
+    width: 100%;
+    text-align: center;
+}
+
+.main-home-screen .rm-logo img{
+    width: 50%;
 }

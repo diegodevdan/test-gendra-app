@@ -1,6 +1,7 @@
 import React from 'react'
-import { Grid, Pagination } from '@mui/material'
+import { Grid } from '@mui/material'
 import CharacterGrid from './CharacterGrid'
+import Paginator from '../../ui/paginator/Paginator'
 
 const CharacterList = ({characters, pages, changePage}) => {
   return (
@@ -19,10 +20,9 @@ const CharacterList = ({characters, pages, changePage}) => {
         }
       </Grid>
 
-      <Pagination
-        count={pages}
-        color="primary"
-        onChange={(event, value) => changePage(value)}
+      <Paginator
+        pages={pages}
+        changePage={changePage}
       />
     </>
 
