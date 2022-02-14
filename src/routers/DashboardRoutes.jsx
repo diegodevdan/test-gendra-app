@@ -5,6 +5,8 @@ import EpisodeScreen from '../components/episode/EpisodeScreen'
 import { AppBarSearch } from '../components/ui/navbar/Navbar'
 import CharacterScreen from '../components/character/CharacterScreen'
 
+// APPBAR NOT MAKE SENSE TOO, BUT IT GIVE TO THE WEBSITE NORMAL STRUCTURE
+
 const DashboardRoutes = () => {
   return (
     <div>

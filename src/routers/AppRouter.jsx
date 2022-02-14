@@ -5,12 +5,14 @@ import LoginScreen from '../components/login/LoginScreen'
 import PrivateRoutes from './PrivateRoutes'
 import DashboardRoutes from './DashboardRoutes'
 
+// PRIVATE AND PUBLIC ROUTES NOT MAKE SENSE IN THIS TASK,
+// I WILL IMPLEMENTS THAT BUT I DON'T HAVE ENOUGHT TIME.
+
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <div>
         <Routes>
-
           <Route
             path='/login'
             element={
@@ -28,7 +30,6 @@ const AppRouter = () => {
               </PrivateRoutes>
             }
           />
-
         </Routes>
       </div>
     </BrowserRouter>

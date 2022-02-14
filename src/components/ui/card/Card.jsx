@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import * as React from 'react'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Typography from '@mui/material/Typography'
+import { Button, CardActionArea, CardActions } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
 export const CardEpisode = (
@@ -14,8 +14,7 @@ export const CardEpisode = (
     imgEpisode,
     id
   }) => {
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const redirectEpisode = () => {
     navigate(`/episodes/${id}`)
@@ -32,7 +31,8 @@ export const CardEpisode = (
         />
         <CardContent>
           <Typography noWrap gutterBottom variant='h5' component='div'>
-            {name} <br/>
+            {name}
+            <br />
             Episode #{numberEpisode}
           </Typography>
           <Typography variant='body2' color='text.secondary'>
@@ -50,5 +50,5 @@ export const CardEpisode = (
         </Button>
       </CardActions>
     </Card>
-  );
+  )
 }

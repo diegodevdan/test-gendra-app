@@ -4,38 +4,41 @@ import MovieIcon from '@mui/icons-material/Movie'
 import CoPresentIcon from '@mui/icons-material/CoPresent'
 import '../../../styles/headers-buttons.css'
 
-const HeadersButtons = ({showEpisodes, showCharacters}) => {
+const HeadersButtons = ({
+  showEpisodes,
+  showCharacters
+}) => {
   return (
     <div
-      className="header-buttons-main"
+      className='header-buttons-main'
     >
       <div
-        className="header-buttons-main cont-button"
+        className='header-buttons-main cont-button'
       >
         <Button
-          color={'success'}
-          size={'large'}
+          color='success'
+          size='large'
           onClick={showEpisodes}
-          variant="contained"
-          endIcon={<MovieIcon />}>
+          variant='contained'
+          endIcon={<MovieIcon />}
+        >
           Episodes
         </Button>
       </div>
 
       <div
-        className="header-buttons-main cont-button"
+        className='header-buttons-main cont-button'
       >
         <Button
-          color={'success'}
-
-          size={'large'}
+          color='success'
+          size='large'
           onClick={showCharacters}
-          variant="contained"
-          endIcon={<CoPresentIcon />}>
+          variant='contained'
+          endIcon={<CoPresentIcon />}
+        >
           Characters
         </Button>
       </div>
-
 
     </div>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from '@mui/material'
 import { CardCharacter } from '../../ui/card-character/CardCharacter'
 
-const CharacterGrid = ({character}) => {
+const CharacterGrid = ({ character }) => {
   return (
     <Grid
       key={character.id}
