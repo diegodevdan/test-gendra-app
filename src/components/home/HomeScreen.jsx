@@ -7,6 +7,8 @@ import SearchBar from '../ui/search-bar/SearchBar'
 import CharacterList from './characters-list/CharacterList'
 import HeadersButtons from '../ui/header-buttons/HeadersButtons'
 import RmLogo from '../../assets/statics/Rick_and_Morty_Logo.png'
+import { useDispatch } from 'react-redux'
+import { getCharactersRedux, getEpisodesRedux } from '../../actions/home'
 
 // I HAVE A LITTLE PROBLEM WITH THE API RICK AND MORTY BUT WELL...
 // IF YOU WANT TO KNOW I CAN TELL YOU
@@ -22,6 +24,11 @@ const HomeScreen = () => {
   const [pagesCharacter, setPagesCharacter] = useState(0)
   const [characters, setCharacters] = useState([])
   const [isShowedEpisodes, setIsShowedEpisodes] = useState(true)
+
+
+
+  const dispatch = useDispatch();
+
 
   const setSearchResults = (pages, results, isEpisode) => {
     if (isEpisode) {
@@ -80,6 +87,14 @@ const HomeScreen = () => {
         setPagesCharacter(data.info.pages)
       })
   }, [getCharacters])
+
+  useEffect(() => {
+    dispatch(getEpisodesRedux())
+  }, [])
+
+  useEffect(() => {
+    dispatch(getCharactersRedux())
+  }, [])
 
   return (
     <div className='main-home-screen'>

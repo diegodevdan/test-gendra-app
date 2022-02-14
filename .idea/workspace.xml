@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fab52587-5f3a-4443-8244-1a3db11bb8f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestGendraApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestGendraApp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/HomeScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeScreen.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +33,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1644858768" />
+                    <option name="branchName" value="test-with-redux" />
+                    <option name="lastUsedInstant" value="1644873741" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="test-with-redux" />
-                    <option name="lastUsedInstant" value="1644858076" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1644873727" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="working" />
@@ -79,8 +82,8 @@
       <recent name="$PROJECT_DIR$/public/assets/statics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/assets/statics" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/assets/statics" />
       <recent name="$PROJECT_DIR$/src/selectors/episodes" />
     </key>
   </component>
@@ -95,7 +98,7 @@
       <workItem from="1644718320157" duration="717000" />
       <workItem from="1644719051226" duration="6992000" />
       <workItem from="1644730749196" duration="1015000" />
-      <workItem from="1644764322505" duration="47767000" />
+      <workItem from="1644764322505" duration="46760000" />
     </task>
     <servers />
   </component>
