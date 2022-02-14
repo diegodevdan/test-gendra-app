@@ -41,6 +41,10 @@ of the app using useCallBack and/or useMemo,
 but i forgot use redux, so if have time i 
 refactor this. 
 
+UPDATE 2: validations of search parameters, maybe
+i need to implement another 2 or 3, but well, i'm
+working on redux, sorry.
+
 -Diego Herrera
 
 ## Available Scripts
