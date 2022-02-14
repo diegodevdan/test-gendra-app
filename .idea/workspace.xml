@@ -3,23 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fab52587-5f3a-4443-8244-1a3db11bb8f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestGendraApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestGendraApp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/HomeScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeScreen.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/characters-list/CharacterGrid.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/characters-list/CharacterGrid.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/characters-list/CharacterList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/characters-list/CharacterList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/episodes-list/EpisodesList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/episodes-list/EpisodesList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/LoginScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginScreen.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/card-character/CardCharacter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/card-character/CardCharacter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/card/Card.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/header-buttons/HeadersButtons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/header-buttons/HeadersButtons.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/character/CharacterScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/character/CharacterScreen.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/episode/EpisodeScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/episode/EpisodeScreen.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ui/search-bar/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/search-bar/SearchBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/AppRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/AppRouter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/DashboardRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/DashboardRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/PrivateRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/PrivateRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/PublicRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/PublicRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selectors/characthers/getCharacters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selectors/characthers/getCharacters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selectors/episodes/getEpisodes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selectors/episodes/getEpisodes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +93,7 @@
       <workItem from="1644718320157" duration="717000" />
       <workItem from="1644719051226" duration="6992000" />
       <workItem from="1644730749196" duration="1015000" />
-      <workItem from="1644764322505" duration="45361000" />
+      <workItem from="1644764322505" duration="45861000" />
     </task>
     <servers />
   </component>

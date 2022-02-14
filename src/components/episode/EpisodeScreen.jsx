@@ -10,19 +10,21 @@ const initEpisode = {
   name: ''
 }
 
+// 2000's styles
+
 const EpisodeScreen = () => {
-  const { episodeId } = useParams();
+  const { episodeId } = useParams()
 
-  const [currentEpisode, setCurrentEpisode] = useState(initEpisode);
-  const { name, episode, characters, air_date } = currentEpisode;
+  const [currentEpisode, setCurrentEpisode] = useState(initEpisode)
+  const { name, episode, characters, air_date } = currentEpisode
 
+  // TODO MAKE SELECTOR
   const getEpisode = async () => {
     const urlEpisode = `https://rickandmortyapi.com/api/episode/${episodeId}`
     try {
       const resp = await fetch(urlEpisode)
         .then(response => response.json())
         .then(data => data)
-      console.log(resp)
       setCurrentEpisode(resp)
     } catch (e) {
       console.log(e)
@@ -30,14 +32,13 @@ const EpisodeScreen = () => {
   }
 
   useEffect(() => {
-    getEpisode();
+    getEpisode()
   }, [])
 
-
   return (
-    <div className="episode-main">
-      <div className="episode-main wallpaper">
-        <img src={Wallp} alt="image episode"/>
+    <div className='episode-main'>
+      <div className='episode-main wallpaper'>
+        <img src={Wallp} alt='image episode' />
       </div>
       <h1>{name}</h1>
       <span>{episode}</span>

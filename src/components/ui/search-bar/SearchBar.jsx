@@ -63,7 +63,6 @@ const SearchBar = ({ setSearchResults }) => {
     try {
       const resp = await fetch(url)
       const data = await resp.json()
-      console.log(data)
       setSearchParameters(initSearchParams)
       if (!data.results && !data.info) {
         setShowAlert(true)
@@ -175,7 +174,7 @@ const SearchBar = ({ setSearchResults }) => {
           )
         }
 
-        {/* AND FOR THIS :(*/}
+        {/* AND FOR THIS :( */}
         {
           typeCharacterParameter === 'gender' && (
             <FormControl
