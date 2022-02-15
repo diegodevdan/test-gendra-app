@@ -11,7 +11,6 @@ import { useSelector } from 'react-redux'
 const EpisodesList = () => {
   const { home } = useSelector(home => home)
   const { episodes } = home
-  console.log(episodes)
 
   if (episodes.episodes.length === 0) {
     return (

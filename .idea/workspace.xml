@@ -4,13 +4,11 @@
     <list default="true" id="fab52587-5f3a-4443-8244-1a3db11bb8f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actions/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/character/CharacterScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/character/CharacterScreen.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/episode/EpisodeScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/episode/EpisodeScreen.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/home/HomeScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeScreen.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/characters-list/CharacterList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/characters-list/CharacterList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/home/episodes-list/EpisodesList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/episodes-list/EpisodesList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/header-buttons/HeadersButtons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/header-buttons/HeadersButtons.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ui/paginator/Paginator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/paginator/Paginator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/search-bar/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/search-bar/SearchBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/initStateHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/initStateHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/homeReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/homeReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.js" afterDir="false" />
     </list>

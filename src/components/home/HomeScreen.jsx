@@ -20,36 +20,12 @@ const HomeScreen = () => {
   const { home } = useSelector(home => home)
   const { episodes, characters, isShowedEpisodes } = home
 
-  const setSearchResults = (pages, results, isEpisode) => {
-    if (isEpisode) {
-      // setIsShowedEpisodes(true)
-      // setEpisodes(prevState => [...results])
-      // setPages(pages)
-    } else {
-      // setIsShowedEpisodes(false)
-      // setCharacters(results)
-      // setPagesCharacter(pages)
-    }
-  }
-
-  // const episodesRecently = () => {
-  //   const recentEpisodes = episodes
-  //     .sort((a, b) => a.created < b.created ? 1 : a.created > b.created ? -1 : 0)
-  //   // setEpisodes(prevState => [...recentEpisodes])
-  // }
-  //
-  // const episodesOlder = () => {
-  //   const recentEpisodes = episodes
-  //     .sort((a, b) => a.created > b.created ? 1 : a.created < b.created ? -1 : 0)
-  //   // setEpisodes(prevState => [...recentEpisodes])
-  // }
-
   useEffect(() => {
-    dispatch(getEpisodesRedux())
+    dispatch(getEpisodesRedux)
   }, [])
 
   useEffect(() => {
-    dispatch(getCharactersRedux())
+    dispatch(getCharactersRedux)
   }, [])
 
   return (
@@ -61,14 +37,14 @@ const HomeScreen = () => {
       <div>
         <HeadersButtons />
 
-        <SearchBar
-          setSearchResults={setSearchResults}
-        />
+        <SearchBar />
+
         <h1>
           {isShowedEpisodes ? 'EPISODES' : 'CHARACTERS'} <br />
           <small> Total pages: {isShowedEpisodes ? episodes.pages : characters.pages}</small>
         </h1>
       </div>
+
       {
         isShowedEpisodes
           ? <EpisodesList />

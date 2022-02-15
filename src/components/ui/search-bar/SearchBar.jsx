@@ -1,20 +1,20 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Alert, Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import { genderValues, statusValues, typeCharacterValues, typeValues } from '../../../data/searchBarTypes'
 import '../../../styles/search-bar.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { searchCharacterRedux, searchEpisodeRedux, toggleFilter } from '../../../actions/home'
+import { initSearchParams } from '../../../helpers/initSearchParams'
 
 // I THINK THIS IS THE MOST HARD PARTE, BECAUSE IS A SEARCH NESTED IN SEARCH NESTED...
 // I CAN REFACTOR ALL OF THIS CODE BECAUSE MORE OF 200 LINES OF CODE IS HARD TO READ AGAIN.
 
-const initSearchParams = {
-  typeParameter: '',
-  typeCharacterParameter: '',
-  secondaryCharacterParameter: '',
-  specifyParameter: ''
-}
+const SearchBar = () => {
+  const dispatch = useDispatch()
+  const { home } = useSelector(home => home)
+  const { showAlertSearch } = home
 
-const SearchBar = ({ setSearchResults }) => {
   const [searchParameters, setSearchParameters] = useState(initSearchParams)
   const [showAlert, setShowAlert] = useState(false)
 
@@ -27,7 +27,12 @@ const SearchBar = ({ setSearchResults }) => {
 
   // TODO custom hook
   const handleChange = useCallback(({ target }) => {
-    if (target.value === 'episode') { setSearchParameters(initSearchParams) }
+    if (target.value === 'episodes') {
+      dispatch(toggleFilter(true))
+    }
+    if (target.value === 'character') {
+      dispatch(toggleFilter(false))
+    }
 
     setSearchParameters(() => ({
       ...searchParameters,
@@ -35,49 +40,27 @@ const SearchBar = ({ setSearchResults }) => {
     }))
   }, [{ ...searchParameters }])
 
-  // TODO separate into selector
   const searchEpisode = async () => {
     hideAlert()
-    const urlSpecifyCharacters = `https://rickandmortyapi.com/api/episode/?name=${specifyParameter}`
-
-    try {
-      const resp = await fetch(urlSpecifyCharacters)
-      const data = await resp.json()
-      setSearchParameters(initSearchParams)
-      if (!data.results && !data.info) {
-        setShowAlert(true)
-        return
-      }
-      // IUGH
-      setSearchResults(data.info.pages, data.results, true)
-    } catch (e) {
-      console.log(e)
-    }
+    dispatch(searchEpisodeRedux(specifyParameter))
   }
 
-  // TODO separate into selector
   const searchCharacter = async () => {
     hideAlert()
-    let url
-    if (!secondaryCharacterParameter.length) { url = `https://rickandmortyapi.com/api/character/?${typeCharacterParameter}=${specifyParameter}` } else { url = `https://rickandmortyapi.com/api/character/?${typeCharacterParameter}=${secondaryCharacterParameter}` }
-    try {
-      const resp = await fetch(url)
-      const data = await resp.json()
-      setSearchParameters(initSearchParams)
-      if (!data.results && !data.info) {
-        setShowAlert(true)
-        return
-      }
-      // MORE IUGH
-      setSearchResults(data.info.pages, data.results, false)
-    } catch (e) {
-      console.log(e)
-    }
+    dispatch(searchCharacterRedux(typeCharacterParameter, specifyParameter, secondaryCharacterParameter))
   }
 
   const hideAlert = () => {
     setShowAlert(false)
   }
+
+  useEffect(() => {
+    if (showAlertSearch) {
+      setShowAlert(true)
+    } else {
+      setShowAlert(false)
+    }
+  }, [showAlertSearch])
 
   // TODO REFACTOR PLEASE
   return (

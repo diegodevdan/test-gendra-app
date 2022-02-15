@@ -8,7 +8,6 @@ const Paginator = ({ pages }) => {
   const dispatch = useDispatch()
   const { home } = useSelector(home => home)
   const { isShowedEpisodes } = home
-  console.log(isShowedEpisodes)
 
   const setPage = (value) => {
     if (isShowedEpisodes) {

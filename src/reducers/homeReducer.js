@@ -39,6 +39,36 @@ export const homeReducer = (state = initialStateHome, action) => {
         currentCharacter: action.payload
       }
 
+    case types.setEpisodesResult:
+      return {
+        ...state,
+        episodes: {
+          episodes: action.payload.results,
+          pages: action.payload.pages
+        }
+      }
+
+    case types.setCharactersResult:
+      return {
+        ...state,
+        characters: {
+          characters: action.payload.results,
+          pages: action.payload.pages
+        }
+      }
+
+    case types.toggleFilterEpisode:
+      return {
+        ...state,
+        isEpisode: action.payload
+      }
+
+    case types.isShowedAlertSearch:
+      return {
+        ...state,
+        showAlertSearch: action.payload
+      }
+
     default:
       break
   }

@@ -21,5 +21,13 @@ export const initialStateHome = {
     origin: '',
     image: '',
     status: ''
-  }
+  },
+  initSearchParams: {
+    typeParameter: '',
+    typeCharacterParameter: '',
+    secondaryCharacterParameter: '',
+    specifyParameter: ''
+  },
+  isEpisode: true,
+  showAlertSearch: false
 }
