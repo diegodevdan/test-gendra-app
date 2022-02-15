@@ -2,15 +2,14 @@ import React from 'react'
 import { Alert, Grid } from '@mui/material'
 import CharacterGrid from './CharacterGrid'
 import Paginator from '../../ui/paginator/Paginator'
+import { useSelector } from 'react-redux'
 
 // I SEPARATE EPISODE LIST, AND I MADE LITTLE COMPONENTS
 
-const CharacterList = ({
-  characters,
-  pages,
-  changePage
-}) => {
-  if (characters.length === 0) {
+const CharacterList = () => {
+  const { home } = useSelector(home => home)
+  const { characters } = home
+  if (characters.characters.length === 0) {
     return (
       <Alert variant='filled' severity='error'>
         Something was grong, try again later
@@ -25,7 +24,7 @@ const CharacterList = ({
         spacing={4}
       >
         {
-          characters.map(character => (
+          characters.characters.map(character => (
             <CharacterGrid
               key={character.id}
               character={character}
@@ -35,10 +34,9 @@ const CharacterList = ({
       </Grid>
 
       {
-        pages > 1 && (
+        characters.pages > 1 && (
           <Paginator
-            pages={pages}
-            changePage={changePage}
+            pages={characters.pages}
           />
         )
       }

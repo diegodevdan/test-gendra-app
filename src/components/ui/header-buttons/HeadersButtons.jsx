@@ -3,11 +3,16 @@ import { Button } from '@mui/material'
 import MovieIcon from '@mui/icons-material/Movie'
 import CoPresentIcon from '@mui/icons-material/CoPresent'
 import '../../../styles/headers-buttons.css'
+import { toggleShowEpisodes } from '../../../actions/home'
+import { useDispatch } from 'react-redux'
 
-const HeadersButtons = ({
-  showEpisodes,
-  showCharacters
-}) => {
+const HeadersButtons = () => {
+  const dispatch = useDispatch()
+
+  const showEpisodes = (value) => {
+    dispatch(toggleShowEpisodes(value))
+  }
+
   return (
     <div
       className='header-buttons-main'
@@ -18,7 +23,7 @@ const HeadersButtons = ({
         <Button
           color='success'
           size='large'
-          onClick={showEpisodes}
+          onClick={() => showEpisodes(true)}
           variant='contained'
           endIcon={<MovieIcon />}
         >
@@ -32,7 +37,7 @@ const HeadersButtons = ({
         <Button
           color='success'
           size='large'
-          onClick={showCharacters}
+          onClick={() => showEpisodes(false)}
           variant='contained'
           endIcon={<CoPresentIcon />}
         >

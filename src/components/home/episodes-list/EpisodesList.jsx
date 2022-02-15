@@ -3,17 +3,17 @@ import { Alert, Grid } from '@mui/material'
 import EpisodeGrid from './EpisodeGrid'
 import '../../../styles/episode-list.css'
 import Paginator from '../../ui/paginator/Paginator'
+import { useSelector } from 'react-redux'
 
 // I SEPARATE EPISODE LIST, AND I MADE LITTLE COMPONENTS
 // EXTRA, I ADD A LITTLE FILTER OF RECENT OR RECENTLY EPISODE
-const EpisodesList = ({
-  episodes,
-  changePage,
-  episodesRecently,
-  episodesOlder,
-  pages
-}) => {
-  if (episodes.length === 0) {
+
+const EpisodesList = () => {
+  const { home } = useSelector(home => home)
+  const { episodes } = home
+  console.log(episodes)
+
+  if (episodes.episodes.length === 0) {
     return (
       <Alert variant='filled' severity='error'>
         Something was grong, try again later
@@ -22,13 +22,11 @@ const EpisodesList = ({
   }
 
   return (
-    <div
-      className='episode-list-main'
-    >
+    <div className='episode-list-main'>
 
       <div className='episode-list-main cont-tabs'>
-        <p onClick={episodesRecently}>most recently</p>
-        <p onClick={episodesOlder}>most older</p>
+        {/* <p onClick={episodesRecently}>most recently</p> */}
+        {/* <p onClick={episodesOlder}>most older</p> */}
       </div>
 
       <Grid
@@ -36,7 +34,7 @@ const EpisodesList = ({
         spacing={4}
       >
         {
-          episodes.map(episode => (
+          episodes.episodes.map(episode => (
             <EpisodeGrid
               key={episode.id}
               episode={episode}
@@ -45,10 +43,9 @@ const EpisodesList = ({
       </Grid>
 
       {
-        pages > 1 && (
+        episodes.pages > 1 && (
           <Paginator
-            pages={pages}
-            changePage={changePage}
+            pages={episodes.pages}
           />
         )
       }

@@ -1,38 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Wallp from '../../assets/statics/wall.jpg'
 import '../../styles/episode-screen.css'
-
-const initEpisode = {
-  air_date: '',
-  characters: '',
-  episode: '',
-  name: ''
-}
+import { useDispatch, useSelector } from 'react-redux'
+import { getEpisode } from '../../actions/home'
 
 // 2000's styles
-
 const EpisodeScreen = () => {
   const { episodeId } = useParams()
 
-  const [currentEpisode, setCurrentEpisode] = useState(initEpisode)
-  const { name, episode, characters, air_date } = currentEpisode
-
-  // TODO MAKE SELECTOR
-  const getEpisode = async () => {
-    const urlEpisode = `https://rickandmortyapi.com/api/episode/${episodeId}`
-    try {
-      const resp = await fetch(urlEpisode)
-        .then(response => response.json())
-        .then(data => data)
-      setCurrentEpisode(resp)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  const dispatch = useDispatch()
+  const { home } = useSelector(home => home)
+  const { name, episode, characters, air_date } = home.currentEpisode
 
   useEffect(() => {
-    getEpisode()
+    dispatch(getEpisode(episodeId))
   }, [])
 
   return (

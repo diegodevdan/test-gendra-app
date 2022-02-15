@@ -1,36 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import '../../styles/episode-screen.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCharacter } from '../../actions/home'
 
-const initCharacter = {
-  name: '',
-  gender: '',
-  location: '',
-  origin: '',
-  image: '',
-  status: ''
-}
-
-const EpisodeScreen = () => {
+const CharacterScreen = () => {
   const { characterId } = useParams()
-
-  const [currentCharacter, setCurrentCharacter] = useState(initCharacter)
-  const { name, gender, location, origin, image, status } = currentCharacter
-
-  const getCharacter = async () => {
-    const urlCharacter = `https://rickandmortyapi.com/api/character/${characterId}`
-    try {
-      const resp = await fetch(urlCharacter)
-        .then(response => response.json())
-        .then(data => data)
-      setCurrentCharacter(resp)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  const dispatch = useDispatch()
+  const { home } = useSelector(home => home)
+  const { name, gender, location, origin, image, status } = home.currentCharacter
 
   useEffect(() => {
-    getCharacter()
+    dispatch(getCharacter(characterId))
   }, [])
 
   return (
@@ -49,4 +30,4 @@ const EpisodeScreen = () => {
   )
 }
 
-export default EpisodeScreen
+export default CharacterScreen
